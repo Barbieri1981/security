@@ -36,4 +36,5 @@ The response is a list of `PetResponseDto` objects, each containing the followin
 You can test this endpoint using `cURL` as follows:
 
 ```bash
-curl -X GET http://localhost:8080/pet -H "Accept: application/json"
+curl -u admin:password -X GET http://localhost:8080/pet -H "Accept: application/json"
+
