@@ -9,18 +9,21 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
-@Configuration
-@EnableWebSecurity
+@Configuration // Marks this class as a configuration class for Spring.
+@EnableWebSecurity // Enables web security for the application.
 public class WebSecurityConfiguration {
 
-    @Bean
+    @Bean // Indicates that this method returns a Spring bean.
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
+        http
+                .csrf(csrf -> csrf.disable()) // Disables CSRF protection, common in stateless REST APIs.
                 .authorizeRequests(authorize -> authorize
-                        .anyRequest().authenticated()
+                        .anyRequest().authenticated() // Ensures all requests are authenticated.
                 )
-                .httpBasic(withDefaults())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        return http.build();
+                .httpBasic(withDefaults()) // Enables HTTP Basic Authentication with default settings.
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)); // Configures session management to be stateless.
+        return http.build(); // Builds and returns the SecurityFilterChain.
     }
 }
+
