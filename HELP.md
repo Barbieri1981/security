@@ -1,40 +1,14 @@
-# Fundamentals of Spring Security
+# Getting Started
 
-No business logic. It is simple.
+### Reference Documentation
+For further reference, please consider the following sections:
 
-## Endpoints
+* [Official Gradle documentation](https://docs.gradle.org)
+* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.1.6/gradle-plugin/reference/html/)
+* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.1.6/gradle-plugin/reference/html/#build-image)
 
-### Retrieve List of Pets
+### Additional Links
+These additional references should also help you:
 
-This endpoint returns a list of pets.
+* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 
-#### HTTP Request
-
-`GET /pet`
-
-#### Response
-
-The response is a list of `PetResponseDto` objects, each containing the following fields:
-
-- `name` (String): The name of the pet.
-
-#### Example Response
-
-```json
-[
-    {
-        "name": "Orejas"
-    },
-    {
-        "name": "Puppy"
-    }
-]
-```
-
-#### cURL Example
-
-You can test this endpoint using `cURL` as follows:
-
-```bash
-curl -X GET http://localhost:8080/pet -H "Accept: application/json"
-```
